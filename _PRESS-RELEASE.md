@@ -18,27 +18,41 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+writeBetter
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Anyone who wants to write better and wonders how a particular word should be used can check the word usage on reputable websites.
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+When people write important texts (business e-mails, articles, cover letters, even blog posts), sometimes they wonder how a certain word or phrase should be used, i.e. the meaning, the right usage context etc. Usually they google the word and then click a few links to check the word usage. This is time consuming. Also, there is a risk that the word is used incorrectly on the websites that come up first in Google search. writeBetter does this work for the user and shows a single page with relevant quotes from reputable websites.
 
 ## Problem ##
   > Describe the problem your product solves.
+Sometimes, when writing important texts, people do not know how a certain word should be used. There are two solutions for this problem: 1) looking up the word in an (online) dictionary; 2) googling the word and checking how other authors use it. However, usage examples in dictionaries are often simplistic and artificial, and going through the results of google search is time-consuming. This problem is relevant both for native English speakers and foreigners.
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+writeBetter is a web service where the user can check the correct usage of a certain word. The user simply types in a word or phrase and automatically gets a page full of quotes with the given word or phrase from several websites.
+
+Optional: the websites can be categorized by context (news, sports, science, tech etc.)
+Optional: the websites can be ranked according to their reputation and reliability.
+Optional: the user can select the required context, which will limit the search only to relevant websites.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+Write faster and better with writeBetter! Our mission is to facilitate communication between people through better writing.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+Just go to writebetter.io and type in the word or phrase you are curious about.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+Writing is no longer a pain. My texts contain fewer stylistic errors, and I spend less time writing.
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+Next time you are struggling with a difficult text, just visit writebetter.io and try it yourself. Focus on your ideas rather than grammar and writing style.
+ 
