@@ -51,7 +51,7 @@ exports.handleRequest = function (req, res) {
   } else if (req.method === "GET" && route==="/words") {
     headers['Content-Type'] = 'application/json';
     res.writeHead(200, headers);
-    res.end(JSON.stringify(storage));
+    res.end(JSON.stringify(engine.results));
   } else {
     if (routes[route]) {
       headers['Content-Type'] = type[route];

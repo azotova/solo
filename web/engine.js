@@ -16,6 +16,8 @@ exports.paths = {
   'pages' : path.join(__dirname, '../pages')
 };
 
+exports.results = [];
+
 
 exports.askGoogleNew = function (word, callback) {
   var query = "https://www.googleapis.com/customsearch/v1?key=AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY&cx=011401941214739866178:jv3spknumbi&q="+word;
@@ -29,13 +31,14 @@ exports.askGoogleNew = function (word, callback) {
       exports.links.push(linkReceived[i].link);
     }
     console.log("linksRec", exports.links);
-    callback(exports.links);
+    callback(word, exports.links);
   })
 }
 
 
 exports.cleanNew = function() {
 	exports.links = [];
+	exports.results = [];
 }
 
 
@@ -55,20 +58,28 @@ exports.getHtml = function (i, sitesToSearch, callback) {
 }
 
 
-exports.getPages = function (sitesToSearch) {
+exports.getPages = function (word, sitesToSearch) {
   sitesToSearch = sitesToSearch || exports.links;
-  for (var i=0; i< sitesToSearch.length;i++) {
+  for (var i=0; i< 5;i++) {
   	// var query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
    //  console.log("query", query);
    //  var res = parser.parseUrl(query);
    //  console.log("res", res);
     //query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
     exports.getHtml(i, sitesToSearch, function (html, savePath){
-      // var $ = cheerio.load(html);
+      var $ = cheerio.load(html);
 
-      // $('li.g').each(function(i) {
-      //    console.log("i", i);
-      //  });
+      $('p').each(function(i, el) {
+      	  var text = $(this).text();
+      	  var wordNoQuotes = word.slice(1,word.length-1)
+      	  console.log("text", text, wordNoQuotes);
+          if (text.indexOf(wordNoQuotes)!==-1) {
+          	console.log("Hi");
+            exports.results.push(text);
+          }
+          console.log("i", i);
+       });
+      console.log("results", exports.results);
       //var trying = $('em').text();
       // console.log("tr", $);
 
@@ -77,10 +88,10 @@ exports.getPages = function (sitesToSearch) {
       //console.log("lik", linkstry);
       // $('.srg').find()
 
-      fs.writeFile(exports.paths.pages+"/"+savePath, html, function (err) {
+      /*fs.writeFile(exports.paths.pages+"/"+savePath, html, function (err) {
        if (err) throw err;
        console.log('Saved!');
-       });
+       });*/
     });
     /*newRequest.get(query, function(err,res, html) { 
                     console.log("query", query);
