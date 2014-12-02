@@ -75,6 +75,7 @@ $(function() {
     addMessage: function(data) {
         var $abstract = $('<div class="abstract"/>');
         $abstract.text(data);
+        $abstract.append('<br />');
         app.$abstracts.append($abstract);      
     },
 
