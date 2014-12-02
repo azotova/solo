@@ -26,4 +26,33 @@ Collect links, send more get requests (for all ten). So far 30 pages.
 
 Go through the page, look for the key word, select the <p> with this word,
 fetch the text from this <p>, add to the results array.
+
+
+GET https://www.googleapis.com/customsearch/v1?key=INSERT_YOUR_API_KEY&cx=011401941214739866178:jv3spknumbi&q=lectures
+
+GET https://www.googleapis.com/customsearch/v1?key=AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY&cx=017576662512468239146:omuauf_lfve&q=lectures
+Project ID: azotovasolomvp Project Number: 146447511107
+
+Project Number: 53227959942
+Project ID: deft-beanbag-782
+API key: AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY
+10.6.29.227
+10.7.21.240
+API key 2: AIzaSyBqY5NGrkCS-KMpztYjdF_kRj3PnbSa7TI
+
+<script>
+  (function() {
+    var cx = '011401941214739866178:jv3spknumbi';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+011401941214739866178:f8vo_xofsfi
+econgrowth
 */

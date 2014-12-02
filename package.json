@@ -4,6 +4,8 @@
   "main": "web/basic-server.js",
   "author": "azotova",
   "dependencies": {
+    "cheerio": "^0.18.0",
+    "google-search-parser-4hype": "^1.0.0",
     "http-request": "^0.7.0",
     "request": "^2.49.0"
   },
