@@ -39,14 +39,17 @@ exports.handleRequest = function (req, res) {
       console.log("content", content);
       storage.push(JSON.parse(content));
       console.log("storage", storage);
-      engine.cleanNew();
-      engine.askGoogleNew(content, engine.getPages);      
       var statusCode = 201;
-      //headers['Content-Type'] ='text/html';
-      //httpHelpers.serveAssets(res, "../pages/searchres/www.huffingtonpost.com", res.end.bind(res));
       headers['Content-Type'] = 'application/json';
       res.writeHead(statusCode, headers);
-      res.end(JSON.stringify({}));
+      engine.cleanNew();
+      console.log("res", res.statusCode);
+      engine.askGoogleNew(content, engine.getPages, res);      
+      //headers['Content-Type'] ='text/html';
+      //httpHelpers.serveAssets(res, "../pages/searchres/www.huffingtonpost.com", res.end.bind(res));
+      /*headers['Content-Type'] = 'application/json';
+      res.writeHead(statusCode, headers);
+      res.end(JSON.stringify({}));*/
     });
   } else if (req.method === "GET" && route==="/words") {
     headers['Content-Type'] = 'application/json';

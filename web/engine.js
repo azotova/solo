@@ -5,6 +5,7 @@ var httpRequest = require('http-request');
 var newRequest = require('request');
 var cheerio = require('cheerio');
 var parser = require('google-search-parser-4hype');
+var httpHelpers = require('./http-helpers');
 
 
 exports.sites = ["www.huffingtonpost.com", "www.newyorker.com"];
@@ -19,8 +20,9 @@ exports.paths = {
 exports.results = [];
 
 
-exports.askGoogleNew = function (word, callback) {
+exports.askGoogleNew = function (word, callback, respo) {
   var query = "https://www.googleapis.com/customsearch/v1?key=AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY&cx=011401941214739866178:jv3spknumbi&q="+word;
+  console.log("resGoog", respo.statusCode);
   newRequest.get(query, function(err,res, html) {
   	if (err) {
       console.log("scrapingErr", err)
@@ -31,7 +33,8 @@ exports.askGoogleNew = function (word, callback) {
       exports.links.push(linkReceived[i].link);
     }
     console.log("linksRec", exports.links);
-    callback(word, exports.links);
+    console.log("resGoogInt", respo.statusCode);
+    callback(word, exports.links, respo);
   })
 }
 
@@ -42,7 +45,7 @@ exports.cleanNew = function() {
 }
 
 
-exports.getHtml = function (i, sitesToSearch, callback) {
+exports.getHtml = function (i, sitesToSearch, respo, callback) {
   sitesToSearch = sitesToSearch || exports.links;
   var query = sitesToSearch[i];
   var savePath = "a"+i;
@@ -53,12 +56,13 @@ exports.getHtml = function (i, sitesToSearch, callback) {
       console.log("scrapingErr", err)
     };
     //console.log("savePathnew", res);
-    callback(html, savePath);
+    console.log("resGoog", respo.statusCode);
+    callback(html, savePath, respo);
   })
 }
 
 
-exports.getPages = function (word, sitesToSearch) {
+exports.getPages = function (word, sitesToSearch, respo) {
   sitesToSearch = sitesToSearch || exports.links;
   for (var i=0; i< 5;i++) {
   	// var query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
@@ -66,7 +70,7 @@ exports.getPages = function (word, sitesToSearch) {
    //  var res = parser.parseUrl(query);
    //  console.log("res", res);
     //query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
-    exports.getHtml(i, sitesToSearch, function (html, savePath){
+    exports.getHtml(i, sitesToSearch, respo, function (html, savePath, respo){
       var $ = cheerio.load(html);
 
       $('p').each(function(i, el) {
@@ -80,6 +84,8 @@ exports.getPages = function (word, sitesToSearch) {
           console.log("i", i);
        });
       console.log("results", exports.results);
+      httpHelpers.sendResponsePost(respo);
+
       //var trying = $('em').text();
       // console.log("tr", $);
 
