@@ -17,18 +17,19 @@ exports.paths = {
 };
 
 
-exports.askGoogleNew = function (word) {
+exports.askGoogleNew = function (word, callback) {
   var query = "https://www.googleapis.com/customsearch/v1?key=AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY&cx=011401941214739866178:jv3spknumbi&q="+word;
   newRequest.get(query, function(err,res, html) {
   	if (err) {
       console.log("scrapingErr", err)
     };
-    console.log("savePathnew", JSON.parse(res.body).items);
+    //console.log("savePathnew", JSON.parse(res.body).items);
     var linkReceived = JSON.parse(res.body).items;
     for (var i = 0; i<linkReceived.length; i++) {
       exports.links.push(linkReceived[i].link);
     }
-    console.log("linksRec", exports.links)
+    console.log("linksRec", exports.links);
+    callback(exports.links);
   })
 }
 
@@ -38,32 +39,31 @@ exports.cleanNew = function() {
 }
 
 
-
-/*exports.getHtml = function (i, word, sitesToSearch, callback) {
-  sitesToSearch = sitesToSearch || exports.sites;
-  var query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
-  var savePath = sitesToSearch[i];
+exports.getHtml = function (i, sitesToSearch, callback) {
+  sitesToSearch = sitesToSearch || exports.links;
+  var query = sitesToSearch[i];
+  var savePath = "a"+i;
   console.log("savePath", savePath);
   console.log("query", query);
-  newRequest.get("https://www.googleapis.com/customsearch/v1?key=AIzaSyA2yTuER8fAeUQ6SA-iTNCsnrpb7IuoCuY&cx=011401941214739866178:jv3spknumbi&q=lectures", function(err,res, html) {
+  newRequest.get(query, function(err,res, html) {
   	if (err) {
       console.log("scrapingErr", err)
     };
-    console.log("savePathnew", res);
+    //console.log("savePathnew", res);
     callback(html, savePath);
   })
-}*/
+}
 
 
-exports.askGoogle = function (word, sitesToSearch) {
-  sitesToSearch = sitesToSearch || exports.sites;
+exports.getPages = function (sitesToSearch) {
+  sitesToSearch = sitesToSearch || exports.links;
   for (var i=0; i< sitesToSearch.length;i++) {
   	// var query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
    //  console.log("query", query);
    //  var res = parser.parseUrl(query);
    //  console.log("res", res);
     //query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
-    this.getHtml(i, word, sitesToSearch, function (html, savePath){
+    exports.getHtml(i, sitesToSearch, function (html, savePath){
       // var $ = cheerio.load(html);
 
       // $('li.g').each(function(i) {
@@ -77,7 +77,7 @@ exports.askGoogle = function (word, sitesToSearch) {
       //console.log("lik", linkstry);
       // $('.srg').find()
 
-      fs.writeFile(exports.paths.searchRes+"/"+savePath, html, function (err) {
+      fs.writeFile(exports.paths.pages+"/"+savePath, html, function (err) {
        if (err) throw err;
        console.log('Saved!');
        });
@@ -97,14 +97,14 @@ exports.askGoogle = function (word, sitesToSearch) {
                    }, i);*/	
   }
    
-}
+};
 
 exports.clean = function (callback) {
   fs.readdir(this.paths.searchRes, function (err, files){
   	if (err) { throw err; }
   	if (files.length>0) {
   	  for (var i = 0; i<files.length; i++) {
-  	    fs.unlinkSync(exports.paths.searchRes + "/" + files[i]);
+  	    fs.unlinkSync(exports.paths.pages + "/" + files[i]);
   	  }
   	  console.log("deleted");
   	  callback();  		

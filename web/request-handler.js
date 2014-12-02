@@ -40,7 +40,7 @@ exports.handleRequest = function (req, res) {
       storage.push(JSON.parse(content));
       console.log("storage", storage);
       engine.cleanNew();
-      engine.askGoogleNew(content);      
+      engine.askGoogleNew(content, engine.getPages);      
       var statusCode = 201;
       //headers['Content-Type'] ='text/html';
       //httpHelpers.serveAssets(res, "../pages/searchres/www.huffingtonpost.com", res.end.bind(res));
