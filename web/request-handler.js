@@ -1,6 +1,7 @@
 var path = require('path');
 var url = require('url');
 var httpHelpers = require('./http-helpers');
+var engine = require("./engine");
 var fs = require('fs');
 
 // require more modules/folders here!
@@ -38,6 +39,7 @@ exports.handleRequest = function (req, res) {
       console.log("content", content);
       storage.push(JSON.parse(content));
       console.log("storage", storage);
+      engine.askGoogle(content);
       var statusCode = 201;
       headers['Content-Type'] = 'application/json';
       res.writeHead(statusCode, headers);
