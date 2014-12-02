@@ -6,16 +6,28 @@ var fs = require('fs');
 // require more modules/folders here!
 
 var routes = {
-               "/": './public/index.html',
-               "/styles.css": './public/style.css'
+               "/": '../client/index.html',
+               "/styles.css": '../client/style.css',
+               "/bower_components/jquery/jquery.min.js": '../client/bower_components/jquery/jquery.min.js',
+               "/bower_components/underscore/underscore-min.js": '../client/bower_components/underscore/underscore-min.js',
+               "/bower_components/underscore/underscore-min.map": '../client/bower_components/underscore/underscore-min.map',
+               "/app.js": '../client/app.js'
              };
 
 var type = {
             "/": "text/html",
-            "/styles.css": "text/css"
+            "/styles.css": "text/css",
+            "/bower_components/jquery/jquery.min.js": 'text/javascript',
+            "/bower_components/underscore/underscore-min.js": 'text/javascript',
+            "/bower_components/underscore/underscore-min.map": 'text/javascript',
+            "/app.js": 'text/javascript'
 };
 
+var storage = ["First"];
+
 exports.handleRequest = function (req, res) {
+  var route = url.parse(req.url).pathname;  
+  console.log("route", route, req.method);
   if (req.method === "POST") {
     var content = "";
     req.on("data", function (chunk) {
@@ -24,15 +36,18 @@ exports.handleRequest = function (req, res) {
 
     req.on("end", function(){
       console.log("content", content);
+      storage.push(JSON.parse(content));
+      console.log("storage", storage);
       var statusCode = 201;
-      headers['Content-Type'] = "text/html";
+      headers['Content-Type'] = 'application/json';
       res.writeHead(statusCode, headers);
-      var route = url.parse(req.url).pathname;
-      httpHelpers.serveAssets(res, routes[route], res.end.bind(res));
+      res.end(JSON.stringify({}));
     });
+  } else if (req.method === "GET" && route==="/words") {
+    headers['Content-Type'] = 'application/json';
+    res.writeHead(200, headers);
+    res.end(JSON.stringify(storage));
   } else {
-    var route = url.parse(req.url).pathname;
-    console.log("route", route);
     if (routes[route]) {
       headers['Content-Type'] = type[route];
       res.writeHead(200, headers);

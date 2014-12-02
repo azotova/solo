@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <script src="bower_components/jquery/jquery.min.js"></script>
+  <script src="bower_components/underscore/underscore-min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <script>
+      $(function(){
+        app.init();
+      });
+  </script>
+  Enter a word here:
+  <form action="#" id="send" method="POST">
+        <input type="text" name="word" id="word"/>
+        <input type="submit" name="submit" class="submit"/>
+  </form>
+  <h1>Abstracts</h1>
+  <div id="abstracts">The results will be here</div>
+</body>
+</html>
