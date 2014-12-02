@@ -18,6 +18,7 @@ exports.serveAssets = function(res, asset, callback) {
   // (Static files are things like html (yours or archived from others...), css, or anything that doesn't change often.)
   fs.readFile(path.join(__dirname, asset), 'utf8', function(err,data) {
     if (err) { throw err }
+   console.log("serving")
     callback(data);
   });
 
