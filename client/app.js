@@ -3,10 +3,7 @@
 var app;
 $(function() {
   app = {
-//TODO: The current 'addFriend' function just adds the class 'friend'
-//to all messages sent by the user
     server: 'http://127.0.0.1:8080/words',
-
     message: "",
 
     init: function() {     
@@ -27,7 +24,7 @@ $(function() {
         contentType: 'application/json',
         success: function (data) {
           console.log('writebetter: word sent');
-          // Trigger a fetch to update the messages, pass true to animate
+          // Trigger a fetch to update the messages
           app.fetch();
         },
         error: function (data) {
@@ -45,18 +42,8 @@ $(function() {
         success: function(data) {
           console.log('writebetter: Messages fetched');
           console.log("data", data);
-          // Don't bother if we have nothing to work with
-//          if (!data.results || !data.results.length) { return; }
-//          console.log("length", data.results[data.results.length-1]);
-          // Get the last message
- //         var mostRecentMessage = data.results[data.results.length-1];
-           
-          // Only bother updating the DOM if we have a new message
-        
-            // Update the UI with the fetched messages
-            app.populateMessages(data);
-            app.makeBold(app.message);
-          
+          app.populateMessages(data);
+          app.makeBold(app.message);          
         },
         error: function(data) {
           console.error('writerbox: Failed to fetch messages');

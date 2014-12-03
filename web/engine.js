@@ -65,11 +65,6 @@ exports.getHtml = function (i, sitesToSearch, respo, callback) {
 exports.getPages = function (word, sitesToSearch, respo) {
   sitesToSearch = sitesToSearch || exports.links;
   for (var i=0; i< 5;i++) {
-  	// var query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
-   //  console.log("query", query);
-   //  var res = parser.parseUrl(query);
-   //  console.log("res", res);
-    //query = "https://www.google.com/?gws_rd=ssl#q=%22" + word + "%22+link:" + sitesToSearch[i];
     exports.getHtml(i, sitesToSearch, respo, function (html, savePath, respo){
       var $ = cheerio.load(html);
 
@@ -86,34 +81,8 @@ exports.getPages = function (word, sitesToSearch, respo) {
       console.log("results", exports.results);
       httpHelpers.sendResponsePost(respo);
 
-      //var trying = $('em').text();
-      // console.log("tr", $);
-
-
-      //$('.srg').children().length;
-      //console.log("lik", linkstry);
-      // $('.srg').find()
-
-      /*fs.writeFile(exports.paths.pages+"/"+savePath, html, function (err) {
-       if (err) throw err;
-       console.log('Saved!');
-       });*/
-    });
-    /*newRequest.get(query, function(err,res, html) { 
-                    console.log("query", query);
-                   	if (err) {
-                   	  console.log("scrapingErr", err)
-                   	};
-                   	 var site = query.substring(query.indexOf("%22+link:")+9); 
-                   	 	console.log("site", site);
-                   	  console.log("exports", exports.paths.searchRes+"/"+sitesToSearch[i])
-                   	  fs.writeFile(exports.paths.searchRes+"/"+sitesToSearch[i], html, function (err) {
-  if (err) throw err;
-  console.log('Saved!');
-});
-                   }, i);*/	
+    });	
   }
-   
 };
 
 exports.clean = function (callback) {
