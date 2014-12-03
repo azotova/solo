@@ -29,10 +29,10 @@ exports.askGoogleNew = function (word, callback, respo) {
     //console.log("savePathnew", JSON.parse(res.body).items);
     var linkReceived = JSON.parse(res.body).items;
     for (var i = 0; i<linkReceived.length; i++) {
-      exports.links.push(linkReceived[i].link);
+      exports.links.push([linkReceived[i].link, linkReceived[i].displayLink]);
     }
     console.log("linksRec", exports.links);
-    console.log("resGoogInt", respo.statusCode);
+    //console.log("resGoogInt", respo.statusCode);
     callback(word, exports.links, respo);
   })
 }
@@ -46,7 +46,7 @@ exports.cleanNew = function() {
 
 exports.getHtml = function (i, sitesToSearch, respo, callback) {
   sitesToSearch = sitesToSearch || exports.links;
-  var query = sitesToSearch[i];
+  var query = sitesToSearch[i][0];
   var savePath = "a"+i;
   console.log("savePath", savePath);
   console.log("query", query);
@@ -73,7 +73,7 @@ exports.getPages = function (word, sitesToSearch, respo) {
       	  console.log("text", text, wordNoQuotes);
           if (text.indexOf(wordNoQuotes)!==-1) {
           	console.log("Hi");
-            exports.results.push(text);
+            exports.results.push([text,sitesToSearch[i][1]]);
           }
           console.log("ind", j);
        });

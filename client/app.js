@@ -64,11 +64,13 @@ $(function() {
 
     addMessage: function(data, i) {
         var $abstract = $('<div class="abstract"/>');
-        $abstract.text(data);
+        $abstract.text(data[0]);
         $abstract.append('<br>');
         var j = i+1;
         var numDiv = '<span>'+j+'. </span>';
+        var source = '<span class = "source"> '+data[1]+' </span>';
         $abstract.prepend(numDiv);
+        $abstract.append(source);
         app.$abstracts.append($abstract);      
     },
 
