@@ -88,6 +88,9 @@ exports.getPages = function (word, sitesToSearch, respo) {
       counter++;
       if (counter ===5) {
         console.log("searchCount", counter);
+        if (exports.results.length===0) {
+          exports.results=[["Sorry, we did not find anything.", "writeBetter"]];
+        }
         httpHelpers.sendResponsePost(respo);	
       }
     });	
