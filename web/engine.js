@@ -56,7 +56,7 @@ exports.getHtml = function (i, sitesToSearch, respo, callback) {
     };
     //console.log("savePathnew", res);
     console.log("resGoog", respo.statusCode);
-    callback(html, savePath, respo);
+    callback(html, i, respo);
   })
 }
 
@@ -64,10 +64,10 @@ exports.getHtml = function (i, sitesToSearch, respo, callback) {
 exports.getPages = function (word, sitesToSearch, respo) {
   sitesToSearch = sitesToSearch || exports.links;
   for (var i=0; i< 5;i++) {
-    exports.getHtml(i, sitesToSearch, respo, function (html, savePath, respo){
+    exports.getHtml(i, sitesToSearch, respo, function (html, i, respo){
       var $ = cheerio.load(html);
 
-      $('p').each(function(i, el) {
+      $('p').each(function(j, el) {
       	  var text = $(this).text();
       	  var wordNoQuotes = word.slice(1,word.length-1)
       	  console.log("text", text, wordNoQuotes);
@@ -75,11 +75,13 @@ exports.getPages = function (word, sitesToSearch, respo) {
           	console.log("Hi");
             exports.results.push(text);
           }
-          console.log("i", i);
+          console.log("ind", j);
        });
       console.log("results", exports.results);
-      httpHelpers.sendResponsePost(respo);
-
+      if (i===4) {
+        console.log("searchInd", i);
+        httpHelpers.sendResponsePost(respo);	
+      }
     });	
   }
 };
