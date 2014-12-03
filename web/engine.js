@@ -29,7 +29,7 @@ exports.askGoogleNew = function (word, callback, respo) {
     //console.log("savePathnew", JSON.parse(res.body).items);
     var linkReceived = JSON.parse(res.body).items;
     if (!linkReceived || linkReceived.length===0) {
-      exports.results=[["Sorry, we did not find anything", "writeBetter"]];
+      exports.results=[["Sorry, we did not find anything.", "writeBetter"]];
       httpHelpers.sendResponsePost(respo);
       console.log("Nothing found");
       return;
