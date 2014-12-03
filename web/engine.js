@@ -7,7 +7,7 @@ var cheerio = require('cheerio');
 var httpHelpers = require('./http-helpers');
 
 
-exports.sites = ["www.huffingtonpost.com", "www.newyorker.com"];
+//exports.sites = ["www.huffingtonpost.com", "www.newyorker.com"];
 
 exports.links = [];
 
@@ -63,6 +63,7 @@ exports.getHtml = function (i, sitesToSearch, respo, callback) {
 
 exports.getPages = function (word, sitesToSearch, respo) {
   sitesToSearch = sitesToSearch || exports.links;
+  var counter = 0;
   for (var i=0; i< 5;i++) {
     exports.getHtml(i, sitesToSearch, respo, function (html, i, respo){
       var $ = cheerio.load(html);
@@ -78,8 +79,9 @@ exports.getPages = function (word, sitesToSearch, respo) {
           console.log("ind", j);
        });
       console.log("results", exports.results);
-      if (i===4) {
-        console.log("searchInd", i);
+      counter++;
+      if (counter ===5) {
+        console.log("searchCount", counter);
         httpHelpers.sendResponsePost(respo);	
       }
     });	
