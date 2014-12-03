@@ -4,7 +4,6 @@ var _ = require('underscore');
 var httpRequest = require('http-request');
 var newRequest = require('request');
 var cheerio = require('cheerio');
-var parser = require('google-search-parser-4hype');
 var httpHelpers = require('./http-helpers');
 
 
@@ -85,19 +84,5 @@ exports.getPages = function (word, sitesToSearch, respo) {
   }
 };
 
-exports.clean = function (callback) {
-  fs.readdir(this.paths.searchRes, function (err, files){
-  	if (err) { throw err; }
-  	if (files.length>0) {
-  	  for (var i = 0; i<files.length; i++) {
-  	    fs.unlinkSync(exports.paths.pages + "/" + files[i]);
-  	  }
-  	  console.log("deleted");
-  	  callback();  		
-  	} else {
-  	  callback();
-  	}
-  });
-}
 
 
