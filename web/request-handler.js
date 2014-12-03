@@ -37,8 +37,6 @@ exports.handleRequest = function (req, res) {
 
     req.on("end", function(){
       console.log("content", content);
-      storage.push(JSON.parse(content));
-      console.log("storage", storage);
       var statusCode = 201;
       headers['Content-Type'] = 'application/json';
       res.writeHead(statusCode, headers);
