@@ -56,7 +56,7 @@ exports.getHtml = function (i, sitesToSearch, respo, callback) {
     };
     //console.log("savePathnew", res);
     console.log("resGoog", respo.statusCode);
-    callback(html, i, respo);
+    callback(html, respo);
   })
 }
 
@@ -65,7 +65,7 @@ exports.getPages = function (word, sitesToSearch, respo) {
   sitesToSearch = sitesToSearch || exports.links;
   var counter = 0;
   for (var i=0; i< 5;i++) {
-    exports.getHtml(i, sitesToSearch, respo, function (html, i, respo){
+    exports.getHtml(i, sitesToSearch, respo, function (html, respo){
       var $ = cheerio.load(html);
 
       $('p').each(function(j, el) {
