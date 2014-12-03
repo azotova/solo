@@ -7,6 +7,8 @@ $(function() {
 //to all messages sent by the user
     server: 'http://127.0.0.1:8080/words',
 
+    message: "",
+
     init: function() {     
       // Cache jQuery selectors
       app.$abstracts = $('#abstracts');
@@ -53,6 +55,7 @@ $(function() {
         
             // Update the UI with the fetched messages
             app.populateMessages(data);
+            app.makeBold(app.message);
           
         },
         error: function(data) {
@@ -72,16 +75,26 @@ $(function() {
       }
     },
 
-    addMessage: function(data) {
+    addMessage: function(data, i) {
         var $abstract = $('<div class="abstract"/>');
         $abstract.text(data);
-        $abstract.append('<br />');
+        $abstract.append('<br>');
+        var j = i+1;
+        var numDiv = '<span>'+j+'. </span>';
+        $abstract.prepend(numDiv);
         app.$abstracts.append($abstract);      
     },
 
+    makeBold: function(word) {
+      var html = $('#abstracts').html();
+      var re = new RegExp (word, "g");
+      console.log("bolding", word);
+      $('#abstracts').html(html.replace(re, '<strong>$&</strong>'));
+    },
+
     handleSubmit: function(evt) {
-      var message = app.$word.val();
-      app.send(message);
+      app.message = app.$word.val();
+      app.send(app.message);
       // Stop the form from submitting
       evt.preventDefault();
     },   
