@@ -3,7 +3,7 @@
 var app;
 $(function() {
   app = {
-    server: 'http://127.0.0.1:8080/words',
+    server: 'http://localhost:3000/words',
     message: "",
 
     init: function() {     
