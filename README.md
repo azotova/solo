@@ -9,8 +9,8 @@ See [PRESS-RELEASE.md](PRESS-RELEASE.md) for the description of use cases.
 
 ## Possible feature extensions
 
-- the websites can be categorized by context (news, sports, science, tech etc.)
 - the websites can be ranked according to their reputation and reliability.
+- the websites can be categorized by context (news, sports, science, tech etc.)
 - the user can select the required context, which will limit the search only to relevant websites. 
 
 ## Requirements
@@ -42,6 +42,6 @@ To install client-side dependencies
 from within the client directory
 
 ```sh
-sudo npm install -g bower  //in order to install bower, if it has not been installed;
+sudo npm install -g bower  
 bower install
 ```
