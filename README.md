@@ -3,6 +3,8 @@ This is a project I completed as a student at [Hack Reactor](http://hackreactor.
 
 ## Usage
 
+writeBetter is a web service where the user can check the correct usage of a certain word. The user simply types in a word or phrase and automatically gets a page full of quotes with the given word or phrase from one or more reputable websites.
+
 See [PRESS-RELEASE.md](PRESS-RELEASE.md) for the description of use cases.
 
 ## Possible feature extensions
