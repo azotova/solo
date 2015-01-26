@@ -1,21 +1,10 @@
-// var fs = require('fs');
-// var path = require('path');
-// var _ = require('underscore');
-// var httpRequest = require('http-request');
+
 var newRequest = require('request');
 var cheerio = require('cheerio');
-// var httpHelpers = require('./http-helpers');
 
-
-//exports.sites = ["www.huffingtonpost.com", "www.newyorker.com"];
 
 exports.links = [];
 
-/*exports.paths = {
-  'searchRes' : path.join(__dirname, '../pages/searchres'),
-  'pages' : path.join(__dirname, '../pages')
-};
-*/
 exports.results = [];
 
 
@@ -77,10 +66,10 @@ exports.getPages = function (word, sitesToSearch, respo) {
 
       $('p').each(function(j, el) {
       	  var text = $(this).text();
-      	  var wordNoQuotes = word.slice(1,word.length-1)
+      	  var wordNoQuotes = word.slice(1, word.length-1)
       	  console.log("text", text, wordNoQuotes);
           if (text.indexOf(wordNoQuotes)!==-1) {
-          	console.log("Hi");
+          	console.log("adding paragraphs");
             exports.results.push([text,sitesToSearch[i][1]]);
           }
           console.log("ind", j);

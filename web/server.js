@@ -16,7 +16,6 @@ server.use(parser.json({strict: false}));
 server.get('/words', handler.get);
 server.post('/words', handler.post);
 
-// server.use(express.static(__dirname + '/../client'));
 
 console.log('Listening on port' + port);
 server.listen(port);
