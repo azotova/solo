@@ -45,3 +45,6 @@ from within the client directory
 sudo npm install -g bower  
 bower install
 ```
+
+## Deployment
+Deployed at [writebetter.azurewebsites.net](http://writebetter.azurewebsites.net/)
