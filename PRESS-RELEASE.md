@@ -1,4 +1,4 @@
-# Project Name #
+# writeBetter #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -15,12 +15,10 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
- 
-## Heading ##
-writeBetter
 
-## Sub-Heading ##
-Anyone who wants to write better and wonders how a particular word should be used can check the word usage on reputable websites.
+
+## Anyone who wants to write better and wonders how a particular word should be used can check the word usage on reputable websites. ##
+
 
 ## Summary ##
 When people write important texts (business e-mails, articles, cover letters, even blog posts), sometimes they wonder how a certain word or phrase should be used, i.e. the meaning, the right usage context etc. Usually they google the word and then click a few links to check the word usage. This is time consuming. Also, there is a risk that the word is used incorrectly on the websites that come up first in Google search. writeBetter does this work for the user and shows a single page with relevant quotes from reputable websites.
