@@ -29,19 +29,17 @@ Sometimes, when writing important texts, people do not know how a certain word s
 ## Solution ##
 writeBetter is a web service where the user can check the correct usage of a certain word. The user simply types in a word or phrase and automatically gets a page full of quotes with the given word or phrase from one or more reputable websites.
 
-Optional: the websites can be categorized by context (news, sports, science, tech etc.)
-Optional: the websites can be ranked according to their reputation and reliability.
-Optional: the user can select the required context, which will limit the search only to relevant websites.
+
 
 ## Quote from writeBetter ##
 Write faster and better with writeBetter! Our mission is to facilitate communication between people through better writing.
 
 ## How to Get Started ##
-Just go to writebetter.azurewebsites.net and type in the word or phrase you are curious about.
+Just go to [writebetter.azurewebsites.net](writebetter.azurewebsites.net) and type in the word or phrase you are curious about.
 
 ## Customer Quote ##
 Writing is no longer a pain. My texts contain fewer stylistic errors, and I spend less time writing.
 
-## Closing and Call to Action ##
-Next time you are struggling with a difficult text, just visit writebetter.azurewebsites.net and try it yourself. Focus on your ideas rather than grammar and writing style.
+## It's time to try writeBetter ##
+Next time you are struggling with a difficult text, just visit [writebetter.azurewebsites.net](writebetter.azurewebsites.net) and try it yourself. Focus on your ideas rather than grammar and writing style.
  
