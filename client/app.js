@@ -1,10 +1,8 @@
-// YOUR CODE HERE:
-
 var app;
 $(function() {
   app = {
-    server: 'http://localhost:3000/words',
-    message: "",
+    server: '/words',
+    message: '',
 
     init: function() {     
       // Cache jQuery selectors

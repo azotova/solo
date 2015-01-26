@@ -1,21 +1,21 @@
-var fs = require('fs');
-var path = require('path');
-var _ = require('underscore');
-var httpRequest = require('http-request');
+// var fs = require('fs');
+// var path = require('path');
+// var _ = require('underscore');
+// var httpRequest = require('http-request');
 var newRequest = require('request');
 var cheerio = require('cheerio');
-var httpHelpers = require('./http-helpers');
+// var httpHelpers = require('./http-helpers');
 
 
 //exports.sites = ["www.huffingtonpost.com", "www.newyorker.com"];
 
 exports.links = [];
 
-exports.paths = {
+/*exports.paths = {
   'searchRes' : path.join(__dirname, '../pages/searchres'),
   'pages' : path.join(__dirname, '../pages')
 };
-
+*/
 exports.results = [];
 
 
@@ -30,7 +30,8 @@ exports.askGoogleNew = function (word, callback, respo) {
     var linkReceived = JSON.parse(res.body).items;
     if (!linkReceived || linkReceived.length===0) {
       exports.results=[["Sorry, we did not find anything.", "writeBetter"]];
-      httpHelpers.sendResponsePost(respo);
+     // httpHelpers.sendResponsePost(respo);
+      respo.sendStatus(201);
       console.log("Nothing found");
       return;
     }
@@ -91,7 +92,8 @@ exports.getPages = function (word, sitesToSearch, respo) {
         if (exports.results.length===0) {
           exports.results=[["Sorry, we did not find anything.", "writeBetter"]];
         }
-        httpHelpers.sendResponsePost(respo);	
+        // httpHelpers.sendResponsePost(respo);
+        respo.sendStatus(201);	
       }
     });	
   }

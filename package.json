@@ -4,7 +4,10 @@
   "main": "web/basic-server.js",
   "author": "azotova",
   "dependencies": {
+    "body-parser": "^1.10.2",
     "cheerio": "^0.18.0",
+    "cors": "^2.5.3",
+    "express": "^4.11.1",
     "google-search-parser-4hype": "^1.0.0",
     "http-request": "^0.7.0",
     "request": "^2.49.0"
@@ -17,6 +20,6 @@
     "underscore": "^1.6.0"
   },
   "scripts": {
-    "start": "node web/basic-server.js"
+    "start": "node web/server.js"
   }
 }
