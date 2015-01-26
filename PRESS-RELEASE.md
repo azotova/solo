@@ -17,7 +17,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 
-## Anyone who wants to write better and wonders how a particular word should be used can check the word usage on reputable websites. ##
+Anyone who wants to write better and wonders how a particular word should be used can check the word usage on reputable websites.
 
 
 ## Summary ##
