@@ -29,7 +29,7 @@ When people write important texts (business e-mails, articles, cover letters, ev
 Sometimes, when writing important texts, people do not know how a certain word should be used. There are two solutions for this problem: 1) looking up the word in an (online) dictionary; 2) googling the word and checking how other authors use it. However, usage examples in dictionaries are often simplistic and artificial, and going through the results of google search is time-consuming. This problem is relevant both for native English speakers and foreigners.
 
 ## Solution ##
-writeBetter is a web service where the user can check the correct usage of a certain word. The user simply types in a word or phrase and automatically gets a page full of quotes with the given word or phrase from several websites.
+writeBetter is a web service where the user can check the correct usage of a certain word. The user simply types in a word or phrase and automatically gets a page full of quotes with the given word or phrase from one or more reputable websites.
 
 Optional: the websites can be categorized by context (news, sports, science, tech etc.)
 Optional: the websites can be ranked according to their reputation and reliability.
@@ -39,11 +39,11 @@ Optional: the user can select the required context, which will limit the search 
 Write faster and better with writeBetter! Our mission is to facilitate communication between people through better writing.
 
 ## How to Get Started ##
-Just go to writebetter. and type in the word or phrase you are curious about.
+Just go to writebetter.azurewebsites.net and type in the word or phrase you are curious about.
 
 ## Customer Quote ##
 Writing is no longer a pain. My texts contain fewer stylistic errors, and I spend less time writing.
 
 ## Closing and Call to Action ##
-Next time you are struggling with a difficult text, just visit writebetter.io and try it yourself. Focus on your ideas rather than grammar and writing style.
+Next time you are struggling with a difficult text, just visit writebetter.azurewebsites.net and try it yourself. Focus on your ideas rather than grammar and writing style.
  
