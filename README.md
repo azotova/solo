@@ -12,3 +12,36 @@ See [PRESS-RELEASE.md](PRESS-RELEASE.md) for the description of use cases.
 - the websites can be categorized by context (news, sports, science, tech etc.)
 - the websites can be ranked according to their reputation and reliability.
 - the user can select the required context, which will limit the search only to relevant websites. 
+
+## Requirements
+
+### Dependencies
+
+Client
+- jquery 2.0.3
+- underscore 1.7.0
+- bower 1.3.12
+
+Server
+- express 4.11.1
+- body-parser 1.10.2
+- cheerio 0.18.0
+- request 2.49.0
+
+### Installing Dependencies
+
+To install npm modules:
+
+from within the root directory
+
+```sh
+npm install
+```
+To install client-side dependencies
+
+from within the client directory
+
+```sh
+sudo npm install -g bower  //in order to install bower, if it has not been installed;
+bower install
+```
