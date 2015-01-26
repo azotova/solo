@@ -35,11 +35,11 @@ writeBetter is a web service where the user can check the correct usage of a cer
 Write faster and better with writeBetter! Our mission is to facilitate communication between people through better writing.
 
 ## How to Get Started ##
-Just go to [writebetter.azurewebsites.net](writebetter.azurewebsites.net) and type in the word or phrase you are curious about.
+Just go to [writebetter.azurewebsites.net](http://writebetter.azurewebsites.net/) and type in the word or phrase you are curious about.
 
 ## Customer Quote ##
 Writing is no longer a pain. My texts contain fewer stylistic errors, and I spend less time writing.
 
 ## It's time to try writeBetter ##
-Next time you are struggling with a difficult text, just visit [writebetter.azurewebsites.net](writebetter.azurewebsites.net) and try it yourself. Focus on your ideas rather than grammar and writing style.
+Next time you are struggling with a difficult text, just visit [writebetter.azurewebsites.net](http://writebetter.azurewebsites.net/) and try it yourself. Focus on your ideas rather than grammar and writing style.
  
